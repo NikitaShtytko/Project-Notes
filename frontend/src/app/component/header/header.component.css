@@ -1,0 +1,84 @@
+.nav-body{
+  background-color: orange;
+  height: 77px;
+  line-height: 77px;
+  display: flex;
+  /*justify-content: start;*/
+  justify-content: space-between;
+}
+
+.menu-logo{
+  display: flex;
+}
+
+.menu-icon{
+  width: 77px;
+  margin: 0 0 0 45.5px;
+  vertical-align: middle;
+}
+
+.logo-name{
+  font-size: 50px;
+  margin-top: auto;
+  margin-left: 20px;
+}
+
+.search-new-note{
+  display: flex;
+}
+
+.new-note{
+  margin: auto 0 auto 20px;
+  border: solid;
+  height: 60px;
+  width: 197px;
+  display: flex;
+  line-height: 0;
+}
+
+#new-note-span{
+  flex: 1;
+  font-size: 30px;
+  margin: auto 0 auto 10px;
+}
+
+#new-note-icon{
+  font-size: 50px;
+  font-weight: bold;
+  margin: auto 10px auto;
+}
+
+.search-place{
+  border: solid;
+  height: 60px;
+  width: 692px;
+  margin: auto 0 auto 20px;
+  display: flex;
+}
+
+.search-place input{
+  flex: 1;
+  background-color: inherit;
+  border: none;
+  padding: 0;
+  font-size: 40px;
+  margin: auto 0 auto 20px;
+}
+
+.search-icon{
+  margin: auto 10px auto 0;
+}
+
+.reload-icon{
+  margin: auto 0 auto 10px;
+}
+
+.settings-user{
+  display: flex;
+  line-height: 0;
+  margin: auto 0;
+}
+
+.settings-user img{
+  margin: auto 10px auto 10px;
+}
