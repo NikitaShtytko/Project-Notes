@@ -1,6 +1,5 @@
 package edu.training.backend.service;
 
-
 import edu.training.backend.entity.Note;
 
 import java.util.Optional;
