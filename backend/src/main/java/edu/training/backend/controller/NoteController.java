@@ -16,7 +16,7 @@ import java.util.Optional;
 public class NoteController {
     private static final Logger LOGGER = LoggerFactory.getLogger(NoteController.class);
 
-    private NoteService noteService;
+    private final NoteService noteService;
 
     @Autowired
     public NoteController(NoteService noteService){
@@ -54,6 +54,7 @@ public class NoteController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deleteNote(@PathVariable(name = "id") Long id) {
+        LOGGER.info("Delete Note Request");
         noteService.delete(id);
     }
 }

@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-public class Note{
+public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "note_id")
@@ -19,6 +19,7 @@ public class Note{
     @Column(name = "text")
     private String text;
 
-    @Column(name = "topic")
-    private String topic;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "topic_id")
+    private Topic topic;
 }
