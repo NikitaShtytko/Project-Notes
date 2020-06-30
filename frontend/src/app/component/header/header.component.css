@@ -5,6 +5,9 @@
   display: flex;
   /*justify-content: start;*/
   justify-content: space-between;
+  min-width: 1450px;
+  min-height: 3.5vh;
+  border: solid 0.5px;
 }
 
 .menu-logo{

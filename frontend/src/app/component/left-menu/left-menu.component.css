@@ -1,0 +1,51 @@
+.main{
+  background-color: orange;
+  width: 92px;
+  max-width: 92px;
+  height: 91.9vh;
+  transition: 0.15s;
+}
+
+.main:hover{
+  /*transition: 0.35s;*/
+  width: 380px;
+  max-width: 380px;
+}
+
+.box{
+  background-color: black;
+  border: solid .2px;
+  display: flex;
+}
+
+.menu-icon{
+  margin: 10px 21px;
+  background-color: greenyellow;
+  height: 50px;
+  width: 50px;
+  min-width: 50px;
+  border-radius: 50px;
+}
+
+.main .box h3{
+  font-family: Gill Sans, sans-serif;
+  font-weight: 600;
+  margin: auto 0 auto 20px;
+  opacity: 0;
+  display: none;
+}
+
+.main:hover .box h3{
+  display: block;
+  transition-timing-function: ease-in-out;
+  animation: vision  0.9s 1 forwards;
+}
+
+@keyframes vision{
+  from{
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
