@@ -1,2 +1,27 @@
 <p>notes works!</p>
 <button (click)="route()">to topic</button>
+<div class="main">
+  <!--  <table class="table">-->
+  <!--    <thead class="thead-dark">-->
+  <!--    <tr style= "background-color: deepskyblue !important;">-->
+  <!--      <th scope="col">Id</th>-->
+  <!--      <th scope="col">Color</th>-->
+  <!--      <th scope="col">Text</th>-->
+  <!--      <th scope="col">Topic</th>-->
+  <!--    </tr>-->
+  <!--    </thead>-->
+  <!--    <thead class="thead-dark">-->
+  <!--    <tr *ngFor="let s of note" [ngStyle]="{'background-color': s.color}">-->
+  <!--      <td style="">{{s.id}}</td>-->
+  <!--      <td>{{s.color}}</td>-->
+  <!--      <td>{{s.text}}</td>-->
+  <!--      <td>{{s.topic?.topic}}</td>-->
+  <!--    </tr>-->
+  <!--    </thead>-->
+  <!--  </table>-->
+  <div class="masonry-layout">
+    <div class="masonry-layout__panel" *ngFor="let s of note" [ngStyle]="{'background-color': s.color}">
+      <div class="masonry-layout__panel-content">{{s.text}}</div>
+    </div>
+  </div>
+</div>
