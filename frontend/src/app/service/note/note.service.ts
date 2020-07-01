@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Note} from "../../entity/note";
 
 @Injectable({
   providedIn: 'root'
@@ -10,52 +11,28 @@ export class NoteService {
   constructor(private httpClient: HttpClient) {
   }
 
-
-
-}
-
-export class UserService {
-
-  constructor(private httpClient: HttpClient) {
-  }
+  // getNotes(): Observable<Note[]>{
+  //   return this.httpClient.get<Note[]>('/api/note');
+  // }
 
   getNotes(): Observable<Note[]>{
     return this.httpClient.get<Note[]>('/api/note');
   }
 
-  getUserByLogin(login: string): Observable<User> {
-    return this.httpClient.get<User>('/api/users/login/' + login);
+  getNoteById(id: number): Observable<Note> {
+    return this.httpClient.get<Note>('/api/note/' + id);
   }
 
-  getUserByEmail(email: string): Observable<User> {
-    return this.httpClient.get<User>('/api/users/email/' + email);
+  saveNote(note: Note): Observable<Note> {
+    return this.httpClient.post<Note>('/api/note', note);
   }
 
-  existUser(login: string): Observable<User> {
-    return this.httpClient.get<User>('/api/users/login/exist/' + login);
+  updateNote(note: Note): Observable<Note> {
+    return this.httpClient.put<Note>('/api/note/', note);
   }
 
-  existEmail(email: string): Observable<User> {
-    return this.httpClient.get<User>('/api/users/email/exist/' + email);
+  deleteNote(id: number): Observable<Note> {
+    return this.httpClient.delete<Note>('/api/note/' + id);
   }
 
-  getUserById(id: number): Observable<User> {
-    return this.httpClient.get<User>('/api/users/' + id);
-  }
-
-  saveUser(user: User): Observable<User> {
-    return this.httpClient.post<User>('/api/users', user);
-  }
-
-  updateUser(user: User): Observable<User> {
-    return this.httpClient.put<User>('/api/users/', user);
-  }
-
-  updateInfo(formData: FormData): Observable<any> {
-    return this.httpClient.put('/api/users/', formData);
-  }
-
-  deleteUser(id: number): Observable<User> {
-    return this.httpClient.delete<User>('/api/users/' + id);
-  }
 }

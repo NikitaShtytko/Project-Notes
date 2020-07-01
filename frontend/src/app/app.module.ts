@@ -9,6 +9,7 @@ import {FormsModule} from "@angular/forms";
 import { TopicComponent } from './component/end-to-end/topic/topic.component';
 import {RouterModule, Routes} from "@angular/router";
 import { NotesComponent } from './component/end-to-end/notes/notes.component';
+import {HttpClientModule} from "@angular/common/http";
 
 const appRoutes: Routes = [
   {path: 'topic', component: TopicComponent},
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [],

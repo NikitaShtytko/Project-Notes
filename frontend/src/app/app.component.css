@@ -1,0 +1,5 @@
+.main{
+  display: flex;
+  background-color: lightgray;
+  height: 100vh;
+}

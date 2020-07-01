@@ -1,0 +1,41 @@
+.table{
+  /*width: 1828px;*/
+}
+
+tr{
+  display: flex;
+  margin-top: 2px;
+}
+
+th, td{
+  flex: 1;
+}
+
+td{
+  text-align: center;
+}
+
+.main{
+  margin: 20px auto 20px 150px;
+}
+
+.masonry-layout {
+  column-count: 5;
+  column-gap: 0;
+  font-weight: bold;
+}
+
+.masonry-layout__panel {
+  break-inside: avoid;
+  padding: 10px;
+  border-radius: 30px;
+  text-align: center;
+  margin: 10px;
+  width: 250px;
+}
+
+.masonry-layout__panel-content {
+  padding: 10px;
+  margin: auto;
+  border-radius: 10px;
+}

@@ -8,9 +8,12 @@
 <!--&lt;!&ndash; * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * &ndash;&gt;-->
 
 
-<!--<app-header></app-header>-->
-<!--<app-left-menu></app-left-menu>-->
-<router-outlet></router-outlet>
+<app-header></app-header>
+<div class="main">
+  <app-left-menu class="left-container"></app-left-menu>
+  <router-outlet class="right-container"></router-outlet>
+</div>
+
 
 <!--<style>-->
 <!--  :host {-->
@@ -533,7 +536,6 @@
 <!--&lt;!&ndash; * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * &ndash;&gt;-->
 <!--&lt;!&ndash; * * * * * * * * * * End of Placeholder * * * * * * * * * * * &ndash;&gt;-->
 <!--&lt;!&ndash; * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * &ndash;&gt;-->
-
 
 
 <!--<router-outlet></router-outlet>-->
