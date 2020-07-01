@@ -17,6 +17,9 @@ public class Note {
     @Column(name = "color")
     private String color;
 
+    @Column(name = "header")
+    private String header;
+
     @Column(name = "text")
     private String text;
 

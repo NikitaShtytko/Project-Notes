@@ -15,4 +15,6 @@ public interface NoteService {
     void delete(Long id);
 
     Note save(Note note);
+
+    Note update(Note note);
 }

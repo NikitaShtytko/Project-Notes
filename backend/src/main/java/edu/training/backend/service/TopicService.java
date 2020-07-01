@@ -15,4 +15,6 @@ public interface TopicService {
     void delete(Long id);
 
     Topic save(Topic Topic);
+
+    Topic update(Topic topic);
 }

@@ -37,20 +37,27 @@ public class NoteController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Note> getNoteById(@PathVariable(name = "id") Long id) {
+        LOGGER.info("Get Note By Id");
         Optional<Note> note = noteService.getById(id);
         return note.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public Iterable<Note> getAllNotes() {
+        LOGGER.info("Get All Notes");
         return noteService.getAll();
     }
 
     @RequestMapping(method = RequestMethod.POST)
     public Note saveNote(@RequestBody Note note) {
+        LOGGER.info("Post For Note");
         return noteService.save(note);
     }
 
+    @RequestMapping(method = RequestMethod.PUT)
+    public Note updatePost(@RequestBody Note note) {
+        return noteService.update(note);
+    }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deleteNote(@PathVariable(name = "id") Long id) {
