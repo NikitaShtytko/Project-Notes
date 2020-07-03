@@ -16,6 +16,9 @@ public class Topic {
     @Column(name = "topic")
     private String topic;
 
+    @Column(name = "color")
+    private String color;
+
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "note_id")
     private List<Note> notes;

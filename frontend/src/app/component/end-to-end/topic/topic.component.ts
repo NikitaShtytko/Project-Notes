@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {TopicService} from "../../../service/topic/topic.service";
+import {Subscription} from "rxjs";
+import {Topic} from "../../../entity/topic";
 
 @Component({
   selector: 'app-topic',
@@ -8,13 +11,21 @@ import {Router} from "@angular/router";
 })
 export class TopicComponent implements OnInit {
 
-  constructor(private router: Router) { }
-
-  ngOnInit(): void {
+  constructor(private topicService: TopicService,
+              private router: Router) {
   }
 
-  route(){
-      this.router.navigateByUrl('note');
+  public topics: Topic[];
+  public subscriptions: Subscription[] = [];
+
+  ngOnInit(): void {
+    this.subscriptions.push(this.topicService.getTopics().subscribe(response => {
+      this.topics = response;
+    }))
+  }
+
+  route() {
+    this.router.navigateByUrl('note');
   }
 
 }

@@ -1,24 +1,36 @@
 <div class="main">
-<!--  (mouseover)="Vision()" (mouseleave)="unVision()"-->
-    <div class="box" *ngFor="let item of topics" [ngStyle]="{'background-color': color}">
+  <!--  (mouseover)="Vision()" (mouseleave)="unVision()"-->
+  <div class="box" (click)="_navigate('note')">
     <div class="menu-icon"></div>
-    <h3 id="item">{{item}}</h3>
-<!--    *ngIf="spanVision"-->
+    <h3 class="default">Заметки</h3>
   </div>
 
-<!--  <li class="nav-item dropdown">-->
-<!--    <div class="dropdown" mdbDropdown>-->
-<!--      <a mdbDropdownToggle class="nav-link dropdown-toggle text-white" routerLink="services">-->
-<!--        Services-->
-<!--      </a>-->
-<!--      <div class="dropdown-menu transparency rounded-0 border-0 ">-->
-<!--        <div *ngFor="let category of colors">-->
-<!--          <a class="dropdown-item" [routerLink]="['services']" [queryParams]="{categoryName:category}">-->
-<!--            <h6 class="text-color">{{category}}</h6></a>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </li>-->
+  <div class="box" (click)="_navigate('topic')">
+    <div class="menu-icon"></div>
+    <h3 class="default">Архив</h3>
+  </div>
+
+
+  <div class="box" *ngFor="let item of topics" [ngStyle]="{'background-color': item.color}"
+       (click)="_navigate(item.topic)">
+    <div class="menu-icon"></div>
+    <h3 id="item">{{item?.topic}}</h3>
+    <!--    *ngIf="spanVision"-->
+  </div>
+
+  <!--  <li class="nav-item dropdown">-->
+  <!--    <div class="dropdown" mdbDropdown>-->
+  <!--      <a mdbDropdownToggle class="nav-link dropdown-toggle text-white" routerLink="services">-->
+  <!--        Services-->
+  <!--      </a>-->
+  <!--      <div class="dropdown-menu transparency rounded-0 border-0 ">-->
+  <!--        <div *ngFor="let category of colors">-->
+  <!--          <a class="dropdown-item" [routerLink]="['services']" [queryParams]="{categoryName:category}">-->
+  <!--            <h6 class="text-color">{{category}}</h6></a>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </li>-->
 
 </div>
 

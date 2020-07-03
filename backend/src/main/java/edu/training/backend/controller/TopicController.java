@@ -43,6 +43,7 @@ public class TopicController {
         return topicService.save(topic);
     }
 
+    //TODO траблы с удалением когда есть связи
     @DeleteMapping(value = "/{id}")
     public void deleteNote(@PathVariable(name = "id") Long id) {
         LOGGER.info("Delete Topic Request");

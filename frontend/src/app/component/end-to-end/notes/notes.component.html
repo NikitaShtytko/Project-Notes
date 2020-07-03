@@ -21,7 +21,11 @@
   <!--  </table>-->
   <div class="masonry-layout">
     <div class="masonry-layout__panel" *ngFor="let s of note" [ngStyle]="{'background-color': s.color}">
-      <div class="masonry-layout__panel-content">{{s.text}}</div>
+      <div class="masonry-layout__panel-content">
+        {{s?.header}}
+        <hr align="center" size="2" color="black" />
+        {{s?.text}}
+      </div>
     </div>
   </div>
 </div>
