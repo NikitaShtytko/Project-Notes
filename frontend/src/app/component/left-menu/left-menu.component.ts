@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TopicService} from "../../service/topic/topic.service";
 import {Router} from "@angular/router";
 import {Topic} from "../../entity/topic";
