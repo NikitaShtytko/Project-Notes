@@ -29,4 +29,13 @@ export class NotesComponent implements OnInit {
     this.router.navigateByUrl('topic');
   }
 
+  equip(header: string, topic: string): string{
+    if (header != null){
+      return header;
+    }
+    else {
+      header = topic;
+      return header;
+    }
+  }
 }

@@ -1,9 +1,10 @@
 .main{
+  top: 0;
   position: fixed;
   background-color: orange;
-  width: 92px;
-  max-width: 92px;
-  height: 91.9vh;
+  width: 79px;
+  max-width: 79px;
+  height: 100vh;
   transition: 0.15s;
 }
 
@@ -23,8 +24,8 @@
 .menu-icon{
   margin: auto 21px;
   background-color: greenyellow;
-  height: 25px;
-  width: 25px;
+  height: 35px;
+  width: 35px;
   min-width: 25px;
   border-radius: 50px;
 }
@@ -38,9 +39,14 @@
 }
 
 .main:hover .box h3{
-  display: block;
   transition-timing-function: ease-in-out;
   animation: vision  0.9s 1 forwards;
+  display: block;
+}
+
+.main:hover .menu-icon{
+  animation: vision 0.5s 1 reverse;
+  display: none;
 }
 
 @keyframes vision{
