@@ -11,10 +11,12 @@ import {RouterModule, Routes} from "@angular/router";
 import { NotesComponent } from './component/end-to-end/notes/notes.component';
 import {HttpClientModule} from "@angular/common/http";
 import {LeftMenuComponent} from "./component/left-menu/left-menu.component";
+import { NoteByTopicComponent } from './component/end-to-end/note-by-topic/note-by-topic.component';
 
 const appRoutes: Routes = [
   {path: 'topic', component: TopicComponent},
-  {path: 'note', component: NotesComponent}
+  {path: 'note', component: NotesComponent},
+  {path: 'noteByTopic/:topic', component: NoteByTopicComponent},
   ];
 
 @NgModule({
@@ -23,7 +25,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     LeftMenuComponent,
     TopicComponent,
-    NotesComponent
+    NotesComponent,
+    NoteByTopicComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

@@ -19,6 +19,11 @@ export class NoteService {
     return this.httpClient.get<Note[]>('/api/note');
   }
 
+  getNotesByTopic(topic: String): Observable<Note[]> {
+    console.log(topic);
+    return this.httpClient.get<Note[]>('/api/note/topic/' + topic);
+  }
+
   getNoteById(id: number): Observable<Note> {
     return this.httpClient.get<Note>('/api/note/' + id);
   }

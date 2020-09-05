@@ -6,6 +6,8 @@
   max-width: 79px;
   height: 100vh;
   transition: 0.15s;
+  /*opacity: 0.2;*/
+  /*display: none;*/
 }
 
 .main:hover{
@@ -36,6 +38,7 @@
   margin: auto 0 auto 20px;
   opacity: 0;
   display: none;
+  cursor: default;
 }
 
 .main:hover .box h3{
@@ -56,4 +59,14 @@
   to {
     opacity: 1;
   }
+}
+
+@media only screen and (max-width: 821px) {
+  .main{
+    width: 50px;
+  }
+}
+
+#noVision{
+  display: none;
 }

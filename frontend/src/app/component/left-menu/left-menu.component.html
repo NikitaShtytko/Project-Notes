@@ -11,10 +11,9 @@
   </div>
 
 
-  <div class="box" *ngFor="let item of topics" [ngStyle]="{'background-color': item.color}"
-       (click)="_navigate(item.topic)">
+  <div class="box" *ngFor="let item of topics" [ngStyle]="{'background-color': item.color}">
     <div class="menu-icon"></div>
-    <h3 id="item">{{item?.topic}}</h3>
+    <h3 id="item" (click)="notesByTopic(item?.topic)">{{item?.topic}}</h3>
     <!--    *ngIf="spanVision"-->
   </div>
 

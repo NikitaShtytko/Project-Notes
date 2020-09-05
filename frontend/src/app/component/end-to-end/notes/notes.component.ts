@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {NoteService} from "../../../service/note/note.service";
 import {Note} from "../../../entity/note";
@@ -10,12 +10,12 @@ import {Subscription} from "rxjs";
   styleUrls: ['./notes.component.css']
 })
 export class NotesComponent implements OnInit {
+  public note: Note[];
 
   constructor(private noteService: NoteService,
               private router: Router) {
   }
 
-  public note: Note[];
   public subscriptions: Subscription[] = [];
 
   ngOnInit(): void {
