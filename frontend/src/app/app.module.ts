@@ -12,6 +12,8 @@ import { NotesComponent } from './component/end-to-end/notes/notes.component';
 import {HttpClientModule} from "@angular/common/http";
 import {LeftMenuComponent} from "./component/left-menu/left-menu.component";
 import { NoteByTopicComponent } from './component/end-to-end/note-by-topic/note-by-topic.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NgcFloatButtonModule} from "ngc-float-button";
 
 const appRoutes: Routes = [
   {path: 'topic', component: TopicComponent},
@@ -26,7 +28,7 @@ const appRoutes: Routes = [
     LeftMenuComponent,
     TopicComponent,
     NotesComponent,
-    NoteByTopicComponent
+    NoteByTopicComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,9 @@ const appRoutes: Routes = [
     NgxMasonryModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+    BrowserModule,
+    NgcFloatButtonModule,
   ],
   providers: [],
   bootstrap: [

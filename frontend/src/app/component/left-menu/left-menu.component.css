@@ -70,3 +70,13 @@
 #noVision{
   display: none;
 }
+
+.settings-label{
+  position: relative;
+  top: 80vh;
+  left: 80vh;
+}
+
+#settings-pane{
+  border-radius: 50px;
+}
