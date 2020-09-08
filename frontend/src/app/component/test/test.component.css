@@ -1,0 +1,113 @@
+.main{
+  display: none;
+  top: 0;
+  position: fixed;
+  /*background-color: #FF8800;*/
+  background-color: #ffbb33;
+  width: 79px;
+  max-width: 79px;
+  height: 100vh;
+  transition: 0.15s;
+  /*opacity: 0.2;*/
+  /*display: none;*/
+}
+
+.main:hover{
+  /*transition: 0.35s;*/
+  width: 380px;
+  max-width: 380px;
+}
+
+.box{
+  background-color: gray;
+  border: solid .2px;
+  display: flex;
+  height: 50px;
+}
+
+.menu-icon{
+  margin: auto 21px;
+  background-color: greenyellow;
+  height: 35px;
+  width: 35px;
+  min-width: 25px;
+  border-radius: 50px;
+}
+
+.main .box h3{
+  font-family: Gill Sans, sans-serif;
+  font-weight: 600;
+  margin: auto 0 auto 20px;
+  opacity: 0;
+  display: none;
+  cursor: default;
+}
+
+.main:hover .box h3{
+  transition-timing-function: ease-in-out;
+  animation: vision  0.9s 1 forwards;
+  display: block;
+}
+
+.main:hover .menu-icon{
+  animation: vision 0.5s 1 reverse;
+  display: none;
+}
+
+@keyframes vision{
+  from{
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 821px) {
+  .main{
+    width: 50px;
+  }
+}
+
+#noVision{
+  display: none;
+}
+
+.settings-label{
+  position: relative;
+  top: 50vh;
+  left: 50vh;
+}
+
+#settings img {
+  position: fixed;
+  top: 50vh;
+  left: 50vh;
+  height: 50px;
+  width: 50px;
+  /*margin: 3px -2px auto auto;*/
+}
+
+.img{
+  position: fixed;
+  top: 50vh;
+  left: 50vh;
+}
+
+.btn{
+  position: fixed;
+  top: 50vh;
+  left: 50vh;
+}
+
+.menu{
+  position: fixed;
+  top: 60vh;
+  left: 60vh;
+}
+
+.external{
+  position: absolute;
+  top: 60vh;
+  left: 60vh;
+}

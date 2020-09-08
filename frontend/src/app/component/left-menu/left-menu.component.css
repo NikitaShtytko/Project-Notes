@@ -1,82 +1,125 @@
-.main{
-  top: 0;
-  position: fixed;
-  background-color: orange;
-  width: 79px;
-  max-width: 79px;
-  height: 100vh;
-  transition: 0.15s;
-  /*opacity: 0.2;*/
-  /*display: none;*/
+img{
+  height: 30px;
+  width: 30px;
 }
 
-.main:hover{
-  /*transition: 0.35s;*/
-  width: 380px;
-  max-width: 380px;
+img:active{
+  transform: scale(1.2);
 }
 
-.box{
-  background-color: gray;
-  border: solid .2px;
+.navbar-nav li{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.navbar2 {
+  background-color: #ffbb33;
+}
+
+.modal-footer button{
+  margin: auto;
   display: flex;
-  height: 50px;
-}
-
-.menu-icon{
-  margin: auto 21px;
-  background-color: greenyellow;
-  height: 35px;
-  width: 35px;
-  min-width: 25px;
+  background-color: #FF8800 !important;
   border-radius: 50px;
 }
 
-.main .box h3{
-  font-family: Gill Sans, sans-serif;
-  font-weight: 600;
-  margin: auto 0 auto 20px;
-  opacity: 0;
-  display: none;
-  cursor: default;
+.modal-footer img{
+  flex: 1;
 }
 
-.main:hover .box h3{
-  transition-timing-function: ease-in-out;
-  animation: vision  0.9s 1 forwards;
-  display: block;
+.modal-footer h4{
+  flex: 1;
+  margin: auto;
+  margin-left: 5px !important;
 }
 
-.main:hover .menu-icon{
-  animation: vision 0.5s 1 reverse;
-  display: none;
+
+
+/*******************************
+* MODAL AS LEFT/RIGHT SIDEBAR
+* Add "left" or "right" in modal parent div, after class="modal".
+* Get free snippets on bootpen.com
+*******************************/
+.modal.left .modal-dialog {
+  position: fixed;
+  margin: auto;
+  width: 220px;
+  height: 100%;
+  -webkit-transform: translate3d(0%, 0, 0);
+  -ms-transform: translate3d(0%, 0, 0);
+  -o-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
 }
 
-@keyframes vision{
-  from{
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.modal.left .modal-content {
+  height: 100%;
+  overflow-y: auto;
 }
 
-@media only screen and (max-width: 821px) {
-  .main{
-    width: 50px;
-  }
+.modal.left .modal-body{
+  padding: 15px 15px 80px;
 }
 
-#noVision{
-  display: none;
+/*Left*/
+.modal.left.fade .modal-dialog{
+  left: -320px;
+  -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+  -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+  -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+  transition: opacity 0.3s linear, left 0.3s ease-out;
 }
 
-.settings-label{
-  position: relative;
-  top: 80vh;
-  left: 80vh;
+.modal.left.fade.in .modal-dialog{
+  left: 0;
 }
 
-#settings-pane{
-  border-radius: 50px;
+/*Right*/
+
+/* ----- MODAL STYLE ----- */
+.modal-content {
+  border-radius: 0;
+  border: none;
+}
+
+.modal-header {
+  border-bottom-color: #EEEEEE;
+  background-color: #FAFAFA;
+}
+
+/* ----- v CAN BE DELETED v ----- */
+body {
+  background-color: #78909C;
+}
+
+.demo {
+  padding-top: 60px;
+  padding-bottom: 110px;
+}
+
+.btn-demo {
+  margin: 15px;
+  padding: 10px 15px;
+  border-radius: 0;
+  font-size: 16px;
+  background-color: #FFFFFF;
+}
+
+.btn-demo:focus {
+  outline: 0;
+}
+
+.demo-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  background-color: #212121;
+  text-align: center;
+}
+
+.demo-footer > a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  color: #fff;
 }

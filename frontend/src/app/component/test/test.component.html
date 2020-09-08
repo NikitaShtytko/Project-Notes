@@ -1,0 +1,97 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-2 fixed-top navbar-light amber lighten-1" [containerInside]="false">
+
+  <!-- Navbar brand -->
+  <mdb-navbar-brand>
+    <img (click)="settingsWindow.show();" src="assets/images/baseline_settings_black_36dp.png" alt="">
+  </mdb-navbar-brand>
+
+  <!-- Collapsible content -->
+  <links>
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" mdbWavesEffect>Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" mdbWavesEffect>Pricing</a>
+      </li>
+    </ul>
+    <!-- Links -->
+  </links>
+  <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->
+
+<div mdbModal #settingsWindow="mdbModal" class="modal fade left" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-side modal-top-left" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="settingsWindow.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="settingsWindow.hide()" mdbWavesEffect>Close</button>
+        <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="main">
+  <!--  (mouseover)="Vision()" (mouseleave)="unVision()"-->
+  <div class="box" (click)="_navigate('note')">
+    <div class="menu-icon"></div>
+    <h3 class="default">Заметки</h3>
+  </div>
+
+  <div class="box" (click)="_navigate('topic')">
+    <div class="menu-icon"></div>
+    <h3 class="default">Архив</h3>
+  </div>
+
+
+  <div class="box" *ngFor="let item of topics" [ngStyle]="{'background-color': item.color}"
+       (click)="notesByTopic(item?.topic)">
+    <div class="menu-icon"></div>
+    <h3 id="item">{{item?.topic}}</h3>
+    <!--    *ngIf="spanVision"-->
+  </div>
+
+  <!--  <li class="nav-item dropdown">-->
+  <!--    <div class="dropdown" mdbDropdown>-->
+  <!--      <a mdbDropdownToggle class="nav-link dropdown-toggle text-white" routerLink="services">-->
+  <!--        Services-->
+  <!--      </a>-->
+  <!--      <div class="dropdown-menu transparency rounded-0 border-0 ">-->
+  <!--        <div *ngFor="let category of colors">-->
+  <!--          <a class="dropdown-item" [routerLink]="['services']" [queryParams]="{categoryName:category}">-->
+  <!--            <h6 class="text-color">{{category}}</h6></a>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </li>-->
+</div>
+<!--<img id="settings" src="assets/images/baseline_settings_black_36dp.png" alt="">-->
+<!--<div class="external">-->
+<!--  <button type="button" class="btn pmd-btn-fab btn-warning pmd-ripple-effect pmd-btn-raised">-->
+<!--    <i class="material-icons pmd-sm">warning</i>-->
+<!--  </button>-->
+
+<!--  <button class="btn pmd-ripple-effect btn-primary" type="button"> Primary </button>-->
+<!--  <button type="button" mdbBtn color="primary" mdbWavesEffect>Primary</button>-->
+<!--</div>-->
+

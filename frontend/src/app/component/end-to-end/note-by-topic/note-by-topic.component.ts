@@ -8,8 +8,8 @@ import {takeUntil} from "rxjs/operators";
 @Component({
   selector: 'app-note-by-topic',
   templateUrl: './note-by-topic.component.html',
-  styleUrls: ['./note-by-topic.component.css'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['../notes/notes.component.css'],
+  // styleUrls: ['./note-by-topic.component.css'],
 })
 export class NoteByTopicComponent implements OnDestroy{
 
