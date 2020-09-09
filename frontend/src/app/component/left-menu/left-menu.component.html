@@ -37,8 +37,8 @@
 <div mdbModal #sideMenu="mdbModal" class="modal left fade" tabindex="-1" role="dialog"
      aria-labelledby="myBasicModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
+    <div class="modal-content" [ngStyle]="{'background-color': backgroundColor, 'color': fontColor}">
+      <div class="modal-header" [ngStyle]="{'background-color': backgroundColor}">
         <h4 class="modal-title" id="myModalLabel">Topics</h4>
       </div>
       <div class="modal-body">
@@ -67,12 +67,22 @@
 <div mdbModal #settingsWindow="mdbModal" class="modal left fade" tabindex="-1" role="dialog"
      aria-labelledby="myBasicModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
+    <div class="modal-content" [ngStyle]="{'background-color': backgroundColor, 'color': fontColor}">
+      <div class="modal-header" [ngStyle]="{'background-color': backgroundColor}">
         <h4 class="modal-title" id="myModalLabel">Settings</h4>
       </div>
       <div class="modal-body">
         <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <div class="custom-control custom-switch" *ngIf="lightVersion" (click)="changeBackground()">
+              <input type="checkbox" class="custom-control-input" id="customSwitchLight" unchecked>
+              <label class="custom-control-label" for="customSwitchLight">Light</label>
+            </div>
+            <div class="custom-control custom-switch" *ngIf="!lightVersion" (click)="changeBackground()">
+              <input type="checkbox" class="custom-control-input" id="customSwitchDark" checked>
+              <label class="custom-control-label" for="customSwitchDark">Dark</label>
+            </div>
+          </li>
           <li class="nav-item">
             <a class="nav-link waves-light" mdbWavesEffect (click)="_navigate('note');">Заметки</a>
           </li>

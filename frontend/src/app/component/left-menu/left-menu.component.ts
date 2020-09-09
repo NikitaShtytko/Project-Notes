@@ -20,6 +20,9 @@ export class LeftMenuComponent implements OnInit {
   public topic: String;
   public topics: Topic[];
   public subscriptions: Subscription[] = [];
+  public lightVersion: boolean = true;
+  public backgroundColor: String = 'white';
+  public fontColor: String = 'black';
 
   spanVision = false;
 
@@ -40,5 +43,14 @@ export class LeftMenuComponent implements OnInit {
     console.log(this.topic);
     this.router.navigate(['note']);
     this.router.navigate(['noteByTopic', topic]);
+  }
+
+  changeBackground(){
+    this.lightVersion = !this.lightVersion;
+    if (this.backgroundColor == 'white') this.backgroundColor = 'gray';
+    else this.backgroundColor = 'white'
+    if (this.fontColor == 'black') this.fontColor = 'white';
+    else this.fontColor = 'black'
+    console.log(this.backgroundColor + " " + this.fontColor);
   }
 }
