@@ -15,6 +15,9 @@ import {LeftMenuComponent} from "./component/left-menu/left-menu.component";
 import {NoteByTopicComponent} from './component/end-to-end/note-by-topic/note-by-topic.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {TestComponent} from './component/test/test.component';
+import { ArchiveComponent } from './component/end-to-end/archive/archive.component';
+import {TextareaAutosizeModule} from "ngx-textarea-autosize";
+
 
 const appRoutes: Routes = [
   {path: 'topic', component: TopicComponent},
@@ -22,6 +25,7 @@ const appRoutes: Routes = [
   {path: '', component: NotesComponent},
   {path: 'noteByTopic/:topic', component: NoteByTopicComponent},
   {path: 'test', component: TestComponent},
+  {path: 'archive', component: ArchiveComponent},
 ];
 
 @NgModule({
@@ -32,7 +36,8 @@ const appRoutes: Routes = [
     TopicComponent,
     NotesComponent,
     NoteByTopicComponent,
-    TestComponent
+    TestComponent,
+    ArchiveComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +50,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     BrowserModule,
     ReactiveFormsModule,
+    TextareaAutosizeModule
   ],
   providers: [],
   bootstrap: [

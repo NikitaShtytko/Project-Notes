@@ -24,11 +24,19 @@ html {
   background: #fff;
   padding: 1.5em;
   margin: 0 auto 2.5em;
+
 }
 
 .item-content{
   overflow: hidden;
   max-height: 600px;
+
+  letter-spacing: .00625em;
+  font-family: 'Google Sans',Roboto,Arial,sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  /*font-size: 16px;*/
 }
 
 /* Masonry on large screens */
@@ -77,4 +85,79 @@ html {
   .masonry {
     column-count: 2;
   }
+}
+
+.options-menu{
+  text-align: right;
+}
+
+.modal-footer button{
+  margin: auto;
+  display: flex;
+  background-color: #FF8800;
+  border-radius: 50px;
+}
+
+.modal-footer img{
+  flex: 1;
+}
+
+.modal-footer h4{
+  flex: 1;
+  margin: auto;
+  margin-left: 5px !important;
+}
+
+.modal-footer:active img{
+  transform: scale(1.2);
+}
+
+.color-button{
+  width: 200px;
+  height: 50px;
+  margin: 5.18px;
+  border-radius: 10px;
+  outline: black;
+}
+
+.color-button:active{
+  transform: scale(1.02);
+}
+
+.modal-title{
+  margin: auto;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.form-control{
+  border: none;
+  box-shadow: none;
+  resize: none;
+  overflow-y: scroll;
+  max-height: 400px;
+  color: black;
+
+  letter-spacing: .00625em;
+  font-family: 'Google Sans',Roboto,Arial,sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+}
+
+.form-group label{
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.form-control:focus {
+  outline: 0;
+  outline-offset: 0;
+  box-shadow: none;
+}
+
+.modal-content{
+  border-radius: 10px;
+  opacity: 0.95;
+
 }

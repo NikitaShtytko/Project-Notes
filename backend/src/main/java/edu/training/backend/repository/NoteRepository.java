@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface NoteRepository extends CrudRepository<Note, Long> {
-
     @Query(value = "select * from note inner join topic on note.topic_id = topic.topic_id where topic.topic = ?1",
             nativeQuery = true)
     Iterable<Note> findByTopic(String topic);
+
 }

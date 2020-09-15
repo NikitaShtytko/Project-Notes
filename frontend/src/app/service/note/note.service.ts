@@ -20,7 +20,6 @@ export class NoteService {
   }
 
   getNotesByTopic(topic: String): Observable<Note[]> {
-    console.log(topic);
     return this.httpClient.get<Note[]>('/api/note/topic/' + topic);
   }
 

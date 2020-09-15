@@ -1,62 +1,45 @@
-<!--Navbar-->
 <mdb-navbar SideClass="navbar navbar-2 fixed-top navbar-light amber lighten-1" [containerInside]="false">
 
-  <!-- Navbar brand -->
   <mdb-navbar-brand>
-    <img (click)="sideMenu.show();" src="assets/images/baseline_settings_black_36dp.png" alt="">
+    <img (click)="sideMenu.show();" src="assets/images/baseline_menu_black_36dp.png" alt="">
   </mdb-navbar-brand>
-
-  <!-- Collapsible content -->
-  <links>
-    <!-- Links -->
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect (click)="_navigate('note');">Заметки</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect (click)="_navigate('');">Архив</a>
-      </li>
-      <li class="nav-item" *ngFor="let item of topics"
-          (click)="notesByTopic(item?.topic)">
-        <a class="nav-link waves-light" mdbWavesEffect>{{item?.topic}}</a>
-      </li>
-      <li>
-        <img (click)="sideMenu.show();" src="assets/images/baseline_settings_black_36dp.png" alt="">
-      </li>
-
-    </ul>
-    <!-- Links -->
-  </links>
-  <!-- Collapsible content -->
 
 </mdb-navbar>
 
-
-<!--/.Navbar-->
+<button id="new-note-button" mdbBtn type="button" rounded="true" mdbWavesEffect>
+  <img (click)="newNote.show();" src="assets/images/baseline_add_black_18dp.png" alt="">
+</button>
 
 <div mdbModal #sideMenu="mdbModal" class="modal left fade" tabindex="-1" role="dialog"
      aria-labelledby="myBasicModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content" [ngStyle]="{'background-color': backgroundColor, 'color': fontColor}">
       <div class="modal-header" [ngStyle]="{'background-color': backgroundColor}">
-        <h4 class="modal-title" id="myModalLabel">Topics</h4>
+        <h4 class="modal-title" id="Topic">Topics</h4>
       </div>
       <div class="modal-body">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link waves-light" mdbWavesEffect (click)="_navigate('note');">Заметки</a>
+            <a class="nav-link waves-light" mdbWavesEffect (click)="_navigate('note'); sideMenu.hide();">Заметки</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link waves-light" mdbWavesEffect (click)="_navigate('');">Архив</a>
+            <a class="nav-link waves-light" mdbWavesEffect (click)="_navigate('archive'); sideMenu.hide();">Архив</a>
           </li>
           <li class="nav-item" *ngFor="let item of topics"
-              (click)="notesByTopic(item?.topic)">
+              (click)="notesByTopic(item?.topic); sideMenu.hide();">
             <a class="nav-link waves-light" mdbWavesEffect>{{item?.topic}}</a>
           </li>
         </ul>
       </div>
+      <div class="modal-footer">
+        <button class="click-button new-topic-button" mdbBtn type="button" rounded="true" mdbWavesEffect>
+          <img src="assets/images/baseline_add_black_18dp.png" alt="">
+          <h4>topic</h4>
+        </button>
+      </div>
       <div class="modal-footer" (click)="settingsWindow.show(); sideMenu.hide();">
-        <button mdbBtn type="button" color="warning" rounded="true" mdbWavesEffect><img src="assets/images/baseline_settings_black_36dp.png" alt="">
+        <button class="click-button" mdbBtn type="button" rounded="true" mdbWavesEffect>
+          <img src="assets/images/baseline_settings_black_36dp.png" alt="">
           <h4>settings</h4>
         </button>
       </div>
@@ -69,7 +52,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content" [ngStyle]="{'background-color': backgroundColor, 'color': fontColor}">
       <div class="modal-header" [ngStyle]="{'background-color': backgroundColor}">
-        <h4 class="modal-title" id="myModalLabel">Settings</h4>
+        <h4 class="modal-title" id="Settings">Settings</h4>
       </div>
       <div class="modal-body">
         <ul class="navbar-nav mr-auto">
@@ -88,12 +71,66 @@
           </li>
         </ul>
       </div>
+      <div class="modal-footer" (click)="settingsWindow.show(); settingsWindow.hide();">
+        <button class="click-button" mdbBtn type="button" rounded="true" mdbWavesEffect>
+          <img src="assets/images/baseline_exit_to_app_black_18dp.png " alt="">
+          <h4>Logout</h4>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div mdbModal #newNote="mdbModal" class="modal fade right" tabindex="-1" role="dialog"
+     aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="padding: 5px"
+         [ngStyle]="{'background-color': backgroundColor, 'color': fontColor}">
+      <div class="modal-header" [ngStyle]="{'background-color': backgroundColor}">
+        <h4 class="modal-title" id="newNote">New Note</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="navbar-nav mr-auto">
+          <li>
+            <div class="form-group" [formGroup]="newNoteValues">
+              <label for="noteTopic">Head</label>
+              <input type="text" class="form-control" name="Topic" id="noteTopic" placeholder=""
+                     formControlName="noteTopic">
+              <!--            <div class="red-text" *ngIf=" login.invalid && login.dirty && !login.errors?.loginExist">-->
+              <!--              Use only 4-40 Cyrillic or Latin characters, 0-9 digit, _ '-->
+              <!--            </div>-->
+              <div class="alert alert-danger mt-3"
+                   *ngIf="newNoteValues.controls['noteTopic'].invalid && newNoteValues.controls['noteTopic'].dirty">
+                Incorrect value
+              </div>
+
+              <label style="margin-top: 10px" for="noteText"><strong>Note</strong></label>
+              <textarea class="form-control" name="Description" id="noteText" cols="30" rows="10"
+                        formControlName="noteText"></textarea>
+              <div class="alert alert-danger mt-3"
+                   *ngIf="newNoteValues.controls['noteText'].invalid && newNoteValues.controls['noteText'].dirty">
+                Incorrect value
+              </div>
+            </div>
+            <div class="options-menu" style="text-align: end">
+              <img src="assets/images/baseline_color_lens_black_36dp.png" alt="">
+              <img src="assets/images/baseline_topic_black_36dp.png" alt="">
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer " (click)="newNote.hide();">
+        <button (click)="_save();" class="click-button new-note-button" mdbBtn type="button" rounded="true"
+                mdbWavesEffect>
+          <img src="assets/images/baseline_save_alt_black_36dp.png" alt="">
+          <h4>Save</h4>
+        </button>
+      </div>
     </div>
   </div>
 </div>
 
 <!--          [ngStyle]="{'background-color': item.color}"-->
-
 <!--progress bar-->
 <!--<div class="progress">-->
 <!--  <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>-->

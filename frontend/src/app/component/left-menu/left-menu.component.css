@@ -1,12 +1,3 @@
-img{
-  height: 30px;
-  width: 30px;
-}
-
-img:active{
-  transform: scale(1.2);
-}
-
 .navbar-nav li{
   font-weight: bold;
   font-size: 15px;
@@ -16,10 +7,20 @@ img:active{
   background-color: #ffbb33;
 }
 
+.modal-title{
+  margin: auto;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.modal-body{
+  overflow: auto;
+}
+
 .modal-footer button{
   margin: auto;
   display: flex;
-  background-color: #FF8800 !important;
+  background-color: #CC0000;
   border-radius: 50px;
 }
 
@@ -33,7 +34,44 @@ img:active{
   margin-left: 5px !important;
 }
 
+#new-note-button{
+  position: fixed;
+  right: 4vh;
+  bottom: 4vh;
+  width: 70px;
+  height: 70px;
+  border-radius: 40px;
+  background-color: #FF8800;
+}
 
+.new-topic-button{
+  background-color: #FF8800 !important;
+  height: 40px;
+}
+
+.new-topic-button img{
+  margin-top: -8px;
+}
+
+.new-topic-button h4{
+  margin-top: -5px;
+}
+
+.new-note-button{
+  background-color: #FF8800 !important;
+}
+
+#new-note-button:active img{
+  transform: scale(1.2);
+}
+
+.click-button:active img{
+  transform: scale(1.2);
+}
+
+#new-note-button img{
+  margin: auto auto auto -14px;
+}
 
 /*******************************
 * MODAL AS LEFT/RIGHT SIDEBAR

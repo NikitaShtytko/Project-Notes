@@ -1,9 +1,11 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {Note} from "../../../entity/note";
 import {NoteService} from "../../../service/note/note.service";
 import {Subject, Subscription} from "rxjs";
-import {ActivatedRoute, Router, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {takeUntil} from "rxjs/operators";
+import {ArchiveService} from "../../../service/archive/archive.service";
+import {Archive} from "../../../entity/archive";
 
 @Component({
   selector: 'app-note-by-topic',
@@ -13,15 +15,16 @@ import {takeUntil} from "rxjs/operators";
 })
 export class NoteByTopicComponent implements OnDestroy{
 
-  // @Input() topic: String;
   private destroy$ = new Subject<undefined>();
   public topic: String;
   public note: Note[];
+  public archive: Archive[];
   public subscriptions: Subscription[] = [];
 
   constructor(private noteService: NoteService,
               private router: Router,
               private activateRoute: ActivatedRoute,
+              private archiveService: ArchiveService,
               ){
     this.topic = activateRoute.snapshot.params.topic
     this.activateRoute.params.pipe(
@@ -30,7 +33,6 @@ export class NoteByTopicComponent implements OnDestroy{
       this.topic = params.topic;
       this.subscriptions.push(this.noteService.getNotesByTopic(this.topic).subscribe(response => {
         this.note = response;
-        console.log("message")
       }));
     });
   }
@@ -56,5 +58,13 @@ export class NoteByTopicComponent implements OnDestroy{
       header = topic;
       return header;
     }
+  }
+
+  toArchive(id: number) {
+    this.subscriptions.push(this.archiveService.toArchive(id).subscribe(response => {
+      this.subscriptions.push(this.noteService.getNotesByTopic(this.topic).subscribe(response => {
+        this.note = response;
+      }));
+    }))
   }
 }

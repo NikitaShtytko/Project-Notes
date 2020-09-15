@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 public class NoteServiceImpl implements NoteService {
 
-    private NoteRepository noteRepository;
+    private final NoteRepository noteRepository;
 
     @Autowired
     public NoteServiceImpl(NoteRepository noteRepository) {

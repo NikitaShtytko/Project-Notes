@@ -1,9 +1,95 @@
 <div class="masonry">
-  <div class="item" *ngFor="let s of note" [ngStyle]="{'background-color': s.color}">
+  <div (click)="editNote.show(); editNoteData(s);" class="item" *ngFor="let s of note"
+       [ngStyle]="{'background-color': s.color}">
     <div class="item-content">
-      {{equip(s.header, s.topic.topic)}}
+      {{equip(s?.header, s?.topic?.topic)}}
       <hr align="center" size="2" color="black"/>
       {{s?.text}}
+    </div>
+  </div>
+</div>
+
+<div mdbModal #editNote="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+     aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="padding: 25px" [ngStyle]="{'background-color': selectedColor}">
+      <div class="modal-header">
+        <h4 class="modal-title" id="newNote">Note</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="navbar-nav mr-auto">
+          <li>
+            <div class="form-group" [formGroup]="newNoteValues">
+              <label for="noteHead">Head</label>
+              <input type="text" class="form-control" name="Topic" id="noteHead" placeholder=""
+                     formControlName="noteHead" [ngStyle]="{'background-color': selectedColor}">
+              <!--            <div class="red-text" *ngIf=" login.invalid && login.dirty && !login.errors?.loginExist">-->
+              <!--              Use only 4-40 Cyrillic or Latin characters, 0-9 digit, _ '-->
+              <!--            </div>-->
+              <div class="alert alert-danger mt-3"
+                   *ngIf="newNoteValues.controls['noteHead'].invalid && newNoteValues.controls['noteHead'].dirty">
+                Incorrect value
+              </div>
+
+              <label style="margin-top: 10px" for="noteText"><strong>Note</strong></label>
+              <textarea autosize class="form-control" name="Description" id="noteText" cols="30" rows="10"
+                        formControlName="noteText" [ngStyle]="{'background-color': selectedColor}"></textarea>
+              <div class="alert alert-danger mt-3"
+                   *ngIf="newNoteValues.controls['noteText'].invalid && newNoteValues.controls['noteText'].dirty">
+                Incorrect value
+              </div>
+            </div>
+            <div class="options-menu" style="text-align: end">
+              <img (click)="colorSelect.show()" src="assets/images/baseline_color_lens_black_36dp.png" alt="">
+              <img (click)="topicSelect.show()" src="assets/images/baseline_topic_black_36dp.png" alt="">
+              <img (click)="_toArchive();" src="assets/images/baseline_archive_black_36dp.png" alt="">
+
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer " (click)="editNote.hide();">
+        <button (click)="_save();" class="click-button new-note-button" mdbBtn type="button" rounded="true"
+                mdbWavesEffect>
+          <img src="assets/images/baseline_save_alt_black_36dp.png" alt="">
+          <h4>Save</h4>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div mdbModal #colorSelect="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+     aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="padding: 5px; right: 255px; width: 250px">
+      <div class="modal-header">
+        <h4 class="modal-title" id="#colorSelect">Change Color</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="navbar-nav mr-auto">
+          <li *ngFor="let color of colors">
+            <button  (click)="colorSelectFromList(color); colorSelect.hide();" class="color-button"
+                     [ngStyle]="{'background-color': color}"></button>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div mdbModal #topicSelect="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+     aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="padding: 5px; left: 505px; width: 250px">
+      <div class="modal-body">
+        <ul class="navbar-nav mr-auto">
+          <li>archive</li>
+          <li>topic</li>
+          <li>test</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

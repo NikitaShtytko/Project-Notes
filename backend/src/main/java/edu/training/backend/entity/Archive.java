@@ -1,15 +1,18 @@
 package edu.training.backend.entity;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @Data
+@ToString
 @Entity
-public class Note {
+@Table(name = "archive")
+public class Archive {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "note_id")
+    @Column(name = "archive_id")
     private Long id;
 
     @Column(name = "color")
@@ -20,8 +23,4 @@ public class Note {
 
     @Column(name = "text")
     private String text;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "topic_id")
-    private Topic topic;
 }

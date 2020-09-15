@@ -1,14 +1,14 @@
 <div class="masonry">
-  <div class="item" *ngFor="let s of note" [ngStyle]="{'background-color': s.color}">
+  <div class="item" *ngFor="let s of archive" [ngStyle]="{'background-color': s.color}">
     <div class="item-content">
-      {{equip(s.header, s.topic.topic)}}
+      {{equip(s?.header)}}
       <hr align="center" size="2" color="black"/>
       {{s?.text}}
       <hr align="center" size="2" color="black"/>
       <div class="options-menu">
         <img src="assets/images/baseline_color_lens_black_36dp.png" alt="">
         <img src="assets/images/baseline_topic_black_36dp.png" alt="">
-        <img (click)="toArchive(s.id);" src="assets/images/baseline_archive_black_36dp.png" alt="">
+        <img (click)="fromArchive(s.id);" src="assets/images/baseline_unarchive_black_36dp.png" alt="">
       </div>
     </div>
   </div>
