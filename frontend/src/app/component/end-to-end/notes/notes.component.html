@@ -32,7 +32,7 @@
               </div>
 
               <label style="margin-top: 10px" for="noteText"><strong>Note</strong></label>
-              <textarea autosize class="form-control" name="Description" id="noteText" cols="30" rows="10"
+              <textarea class="form-control" name="Description" id="noteText" cols="30" rows="10"
                         formControlName="noteText" [ngStyle]="{'background-color': selectedColor}"></textarea>
               <div class="alert alert-danger mt-3"
                    *ngIf="newNoteValues.controls['noteText'].invalid && newNoteValues.controls['noteText'].dirty">
